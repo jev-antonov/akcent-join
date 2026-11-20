@@ -13,13 +13,25 @@
   header { text-align: center; margin-bottom: 32px; }
   header img { height: 48px; }
   iframe { border: none; width: 100%; height: 760px; }
+  .consent { padding: 16px; margin-bottom: 24px; background: #f4f4f4; border-radius: 8px; font-size: 14px; }
+  .consent p { margin-top: 0; line-height: 1.5; }
+  button { font: inherit; padding: 8px 12px; cursor: pointer; }
+  footer { margin-top: 20px; text-align: center; }
+  footer button { border: 0; background: none; text-decoration: underline; font-size: 12px; }
 </style>
 </head>
 <body>
   <header>
     <img src="logo.svg" alt="Акцент">
   </header>
-  <iframe data-tally-src="https://tally.so/r/kdDzb6?transparentBackground=1" loading="lazy" title="Заявка в книжный клуб «Акцент»"></iframe>
+  <aside id="analytics-consent" class="consent" hidden aria-label="Настройки аналитики">
+    <p>Разрешите Google Analytics и Meta Pixel использовать cookies, чтобы мы могли оценивать рекламу? Форма работает и без них. Ответы из формы в эти сервисы не передаём.</p>
+    <button id="analytics-accept" type="button">Разрешить</button>
+    <button id="analytics-decline" type="button">Без аналитики</button>
+  </aside>
+  <iframe id="signup-form" data-tally-src="https://tally.so/embed/kdDzb6?alignLeft=1&amp;transparentBackground=1&amp;dynamicHeight=1" title="Заявка в книжный клуб «Акцент»"></iframe>
+  <footer><button id="analytics-settings" type="button">Настройки аналитики</button></footer>
+  <script src="tracking.js"></script>
   <script>
     var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s)}else v();
   </script>
